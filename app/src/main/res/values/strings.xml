@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">NMedia</string>
     <string name="nmedia">NMedia!</string>
+    <string name="start">Hi, this is Netology! We started with courses about online marketing. Then they grew up in the University of Internet professions: they taught designers, analysts, programmers, managers, marketers… We continue to grow. Today we give knowledge not only to beginners, but also to those who have been in the profession for a long time. Netology helps to grow at all stages of a career — to gain knowledge at the start and to open new heights. Our mission is to help us embark on the path of growth and start a chain of changes.</string>
+    <string name="heading">Netology. University of Internet Professions.</string>
+    <string name="time">May 21 at 18:36</string>
+    <string name="web" translatable="false">https://netology.ru</string>
+
 </resources>
