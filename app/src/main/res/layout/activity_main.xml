@@ -20,6 +20,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_launcher_foreground" />
 
+    <ImageView
+        android:id="@+id/spot"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginEnd="@dimen/common_spacing"
+        app:layout_constraintBottom_toBottomOf="@id/autor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/autor"
+        app:layout_constraintTop_toTopOf="@id/autor"
+        app:srcCompat="@drawable/ic_baseline_more_vert_24" />
+
+
     <TextView
         android:id="@+id/autor"
         android:layout_width="0dp"
@@ -30,7 +42,7 @@
         android:singleLine="true"
         android:text="@string/heading"
         app:layout_constraintBottom_toTopOf="@+id/time"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/spot"
         app:layout_constraintStart_toEndOf="@+id/avatar0"
         app:layout_constraintTop_toTopOf="@id/avatar0"
         app:layout_constraintVertical_chainStyle="packed" />
@@ -53,20 +65,36 @@
 
     <TextView
         android:id="@+id/text2"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/common_spacing"
         android:layout_marginTop="@dimen/common_spacing"
+        android:layout_marginStart="@dimen/common_spacing"
         android:layout_marginEnd="@dimen/common_spacing"
         android:text="@string/start"
-        app:layout_constraintTop_toTopOf="@id/barrier" />
+        app:layout_constraintBottom_toTopOf="@+id/web"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/barrier"
+        app:layout_constraintVertical_chainStyle="packed" />
+
 
     <TextView
+        android:id="@+id/web"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/post_avatar_size"
+        android:paddingTop="12dp"
+        android:autoLink="web"
+        android:linksClickable="true"
+        android:text="@string/web"
+        app:layout_constraintStart_toStartOf="@id/text2"
+        app:layout_constraintTop_toBottomOf="@+id/text2" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/web"
-        android:autoLink="web"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text2" />
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="web,text2"
+       />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
