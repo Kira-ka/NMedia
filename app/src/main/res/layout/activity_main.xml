@@ -67,8 +67,8 @@
         android:id="@+id/text2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/common_spacing"
         android:layout_marginStart="@dimen/common_spacing"
+        android:layout_marginTop="@dimen/common_spacing"
         android:layout_marginEnd="@dimen/common_spacing"
         android:text="@string/start"
         app:layout_constraintBottom_toTopOf="@+id/web"
@@ -82,9 +82,9 @@
         android:id="@+id/web"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/post_avatar_size"
-        android:paddingTop="12dp"
         android:autoLink="web"
         android:linksClickable="true"
+        android:paddingTop="12dp"
         android:text="@string/web"
         app:layout_constraintStart_toStartOf="@id/text2"
         app:layout_constraintTop_toBottomOf="@+id/text2" />
@@ -94,7 +94,70 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="web,text2"
-       />
+        app:constraint_referenced_ids="web,text2" />
+
+    <ImageView
+        android:id="@+id/liks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/common_spacing"
+        android:layout_marginTop="@dimen/common_spacing"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/barrier2"
+        app:srcCompat="@drawable/ic_baseline_favorite_border_24" />
+
+    <TextView
+        android:id="@+id/like"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/common_spacing"
+        android:maxWidth="@dimen/post_avatar_size"
+        android:text="@string/like"
+        app:layout_constraintBottom_toBottomOf="@id/liks"
+        app:layout_constraintStart_toEndOf="@id/liks"
+        app:layout_constraintTop_toTopOf="@id/liks" />
+
+    <ImageView
+        android:id="@+id/shares"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/common_spacing"
+        android:layout_marginTop="@dimen/common_spacing"
+        app:layout_constraintStart_toEndOf="@id/like"
+        app:layout_constraintTop_toBottomOf="@id/barrier2"
+        app:srcCompat="@drawable/ic_baseline_share_24" />
+
+    <TextView
+        android:id="@+id/share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/common_spacing"
+        android:maxWidth="@dimen/post_avatar_size"
+        android:text="@string/share"
+        app:layout_constraintBottom_toBottomOf="@id/shares"
+        app:layout_constraintStart_toEndOf="@id/shares"
+        app:layout_constraintTop_toTopOf="@id/shares" />
+
+    <TextView
+        android:id="@+id/vis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/common_spacing"
+        android:maxWidth="@dimen/post_avatar_size"
+        android:text="@string/vis"
+        app:layout_constraintBottom_toBottomOf="@id/shares"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/shares" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_baseline_visibility_24"
+        app:layout_constraintEnd_toStartOf="@id/vis"
+        android:layout_marginEnd="@dimen/common_spacing"
+        app:layout_constraintTop_toBottomOf="@id/barrier2"
+        android:layout_marginTop="@dimen/common_spacing"
+        android:maxWidth="@dimen/post_avatar_size"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
