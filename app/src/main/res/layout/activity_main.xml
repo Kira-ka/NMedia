@@ -18,7 +18,7 @@
         app:layout_constraintBottom_toTopOf="@id/barrier"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_launcher_foreground" />
+        app:srcCompat="@drawable/netology" />
 
     <ImageView
         android:id="@+id/spot"
@@ -40,21 +40,21 @@
         android:layout_marginEnd="@dimen/common_spacing"
         android:ellipsize="end"
         android:singleLine="true"
-        android:text="@string/heading"
         app:layout_constraintBottom_toTopOf="@+id/time"
         app:layout_constraintEnd_toStartOf="@id/spot"
         app:layout_constraintStart_toEndOf="@+id/avatar0"
         app:layout_constraintTop_toTopOf="@id/avatar0"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="@sample/posts.json/data/author" />
 
     <TextView
         android:id="@+id/time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/time"
         app:layout_constraintBottom_toBottomOf="@id/avatar0"
         app:layout_constraintStart_toStartOf="@id/autor"
-        app:layout_constraintTop_toBottomOf="@+id/autor" />
+        app:layout_constraintTop_toBottomOf="@+id/autor"
+        tools:text="@sample/posts.json/data/published" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrier"
@@ -70,31 +70,22 @@
         android:layout_marginStart="@dimen/common_spacing"
         android:layout_marginTop="@dimen/common_spacing"
         android:layout_marginEnd="@dimen/common_spacing"
-        android:text="@string/start"
-        app:layout_constraintBottom_toTopOf="@+id/web"
+        android:layout_marginBottom="@dimen/common_spacing"
+        android:autoLink="web"
+        android:linksClickable="true"
+        app:layout_constraintBottom_toTopOf="@id/barrier2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/barrier"
-        app:layout_constraintVertical_chainStyle="packed" />
-
-
-    <TextView
-        android:id="@+id/web"
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/post_avatar_size"
-        android:autoLink="web"
-        android:linksClickable="true"
-        android:paddingTop="12dp"
-        android:text="@string/web"
-        app:layout_constraintStart_toStartOf="@id/text2"
-        app:layout_constraintTop_toBottomOf="@+id/text2" />
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="@sample/posts.json/data/content" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrier2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="web,text2" />
+        app:constraint_referenced_ids="text2" />
 
     <ImageView
         android:id="@+id/liks"
@@ -152,12 +143,12 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_baseline_visibility_24"
-        app:layout_constraintEnd_toStartOf="@id/vis"
-        android:layout_marginEnd="@dimen/common_spacing"
-        app:layout_constraintTop_toBottomOf="@id/barrier2"
         android:layout_marginTop="@dimen/common_spacing"
-        android:maxWidth="@dimen/post_avatar_size"/>
+        android:layout_marginEnd="@dimen/common_spacing"
+        android:maxWidth="@dimen/post_avatar_size"
+        app:layout_constraintEnd_toStartOf="@id/vis"
+        app:layout_constraintTop_toBottomOf="@id/barrier2"
+        app:srcCompat="@drawable/ic_baseline_visibility_24" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
