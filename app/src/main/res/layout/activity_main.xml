@@ -103,10 +103,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/common_spacing"
         android:maxWidth="@dimen/post_avatar_size"
-        android:text="@string/like"
         app:layout_constraintBottom_toBottomOf="@id/liks"
         app:layout_constraintStart_toEndOf="@id/liks"
-        app:layout_constraintTop_toTopOf="@id/liks" />
+        app:layout_constraintTop_toTopOf="@id/liks"
+        tools:text="@sample/posts.json/data/like" />
 
     <ImageView
         android:id="@+id/shares"
@@ -124,10 +124,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/common_spacing"
         android:maxWidth="@dimen/post_avatar_size"
-        android:text="@string/share"
         app:layout_constraintBottom_toBottomOf="@id/shares"
         app:layout_constraintStart_toEndOf="@id/shares"
-        app:layout_constraintTop_toTopOf="@id/shares" />
+        app:layout_constraintTop_toTopOf="@id/shares"
+        tools:text="@sample/posts.json/data/share" />
 
     <TextView
         android:id="@+id/vis"
@@ -135,12 +135,13 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/common_spacing"
         android:maxWidth="@dimen/post_avatar_size"
-        android:text="@string/vis"
         app:layout_constraintBottom_toBottomOf="@id/shares"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/shares" />
+        app:layout_constraintTop_toTopOf="@id/shares"
+        tools:text="@sample/posts.json/data/vis" />
 
     <ImageView
+        android:id="@+id/visibility"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/common_spacing"
