@@ -64,7 +64,7 @@
         app:constraint_referenced_ids="avatar0,autor" />
 
     <TextView
-        android:id="@+id/text2"
+        android:id="@+id/content"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/common_spacing"
@@ -85,7 +85,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="text2" />
+        app:constraint_referenced_ids="content" />
 
     <ImageView
         android:id="@+id/liks"
