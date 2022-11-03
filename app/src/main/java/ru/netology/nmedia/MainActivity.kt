@@ -23,10 +23,15 @@ class MainActivity : AppCompatActivity() {
             autor.text = post.author
             time.text = post.published
             content.text = post.content
+            if (post.likedByMe){
+                binding.liks.setImageResource(R.drawable.ic_baseline_favorite_24)
+            }
+            liks.setOnClickListener{
+                post.likedByMe = !post.likedByMe
+                liks.setImageResource(if (post.likedByMe)R.drawable.ic_baseline_favorite_24 else R.drawable.ic_baseline_favorite_border_24)
+            }
         }
 
-        binding.liks.setOnClickListener {
-            binding.liks.setImageResource(R.drawable.ic_baseline_favorite_24)
-        }
+
     }
 }
