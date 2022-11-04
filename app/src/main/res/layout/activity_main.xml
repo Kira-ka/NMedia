@@ -88,7 +88,7 @@
         app:constraint_referenced_ids="content" />
 
     <ImageView
-        android:id="@+id/liks"
+        android:id="@+id/like"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/common_spacing"
@@ -98,14 +98,14 @@
         app:srcCompat="@drawable/ic_baseline_favorite_border_24" />
 
     <TextView
-        android:id="@+id/like"
+        android:id="@+id/likeCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/common_spacing"
         android:maxWidth="@dimen/post_avatar_size"
-        app:layout_constraintBottom_toBottomOf="@id/liks"
-        app:layout_constraintStart_toEndOf="@id/liks"
-        app:layout_constraintTop_toTopOf="@id/liks"
+        app:layout_constraintBottom_toBottomOf="@id/like"
+        app:layout_constraintStart_toEndOf="@id/like"
+        app:layout_constraintTop_toTopOf="@id/like"
         tools:text="@sample/posts.json/data/like" />
 
     <ImageView
@@ -114,7 +114,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/common_spacing"
         android:layout_marginTop="@dimen/common_spacing"
-        app:layout_constraintStart_toEndOf="@id/like"
+        app:layout_constraintStart_toEndOf="@id/likeCount"
         app:layout_constraintTop_toBottomOf="@id/barrier2"
         app:srcCompat="@drawable/ic_baseline_share_24" />
 
