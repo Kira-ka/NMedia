@@ -11,6 +11,8 @@ import ru.netology.nmedia.dto.PostViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewmodel.viewModelFactory
 import androidx.lifecycle.MutableLiveData
+import ru.netology.nmedia.databinding.PostCardBinding
+import ru.netology.nmedia.dto.PostAdapter
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,26 +21,18 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val viewModel: PostViewModel by viewModels()
-        viewModel.data.observe(this)
-        { post ->
-            with(binding) {
-                autor.text = post.author
-                time.text = post.published
-                content.text = post.content
-                likeCount.text = Counter.count(post.likes)
-                shareCount.text = Counter.count(post.share)
-                like.setImageResource(
-                    if (post.likedByMe) R.drawable.ic_baseline_favorite_24 else R.drawable.ic_baseline_favorite_border_24
-                )
-            }
-        }
-        binding.like.setOnClickListener {
-            viewModel.like()
-        }
-        binding.shares.setOnClickListener {
-            viewModel.share()
-        }
+        val adapter = PostAdapter({
+            viewModel.likeById(it.id)
+        }, {
+            viewModel.shareById(it.id)
 
+        })
+        binding.list.adapter = adapter
+        viewModel.data.observe(this) { posts ->
+            adapter.list = posts
+        }
 
     }
+
+
 }
