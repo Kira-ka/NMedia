@@ -4,5 +4,6 @@
     <string name="like" translatable="false">10</string>
     <string name="share" translatable="false">11</string>
     <string name="vis" translatable="false">100</string>
+    <string name="remove">Remove</string>
 
 </resources>

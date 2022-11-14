@@ -1,18 +1,11 @@
-package ru.netology.nmedia
+package ru.netology.nmedia.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Spannable.Factory
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
+import ru.netology.nmedia.adapter.PostAdapter
 import ru.netology.nmedia.databinding.ActivityMainBinding
-import ru.netology.nmedia.dto.Counter
-import ru.netology.nmedia.dto.Post
-import ru.netology.nmedia.dto.PostViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.viewmodel.viewModelFactory
-import androidx.lifecycle.MutableLiveData
-import ru.netology.nmedia.databinding.PostCardBinding
-import ru.netology.nmedia.dto.PostAdapter
+import ru.netology.nmedia.viewmodel.PostViewModel
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,6 +19,8 @@ class MainActivity : AppCompatActivity() {
         }, {
             viewModel.shareById(it.id)
 
+        }, {
+            viewModel.removeById(it.id)
         })
         binding.list.adapter = adapter
         viewModel.data.observe(this) { posts ->
