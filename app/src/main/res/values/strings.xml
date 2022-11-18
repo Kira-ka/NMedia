@@ -4,6 +4,8 @@
     <string name="like" translatable="false">10</string>
     <string name="share" translatable="false">11</string>
     <string name="vis" translatable="false">100</string>
-    <string name="remove">Remove</string>
-
+    <string name="remove">remove</string>
+    <string name="post_text">Post text</string>
+    <string name="edit">edit</string>
+    <string name="not_empty">Content can\'t be empty</string>
 </resources>

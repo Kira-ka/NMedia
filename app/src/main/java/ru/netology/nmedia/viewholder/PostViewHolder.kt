@@ -3,9 +3,7 @@ package ru.netology.nmedia.viewholder
 import android.widget.PopupMenu
 import androidx.recyclerview.widget.RecyclerView
 import ru.netology.nmedia.R
-import ru.netology.nmedia.adapter.OnLikeListener
-import ru.netology.nmedia.adapter.OnRemoveListener
-import ru.netology.nmedia.adapter.OnShareListener
+import ru.netology.nmedia.adapter.OnInteractionListener
 import ru.netology.nmedia.databinding.PostCardBinding
 import ru.netology.nmedia.counter.Counter
 import ru.netology.nmedia.dto.Post
@@ -13,9 +11,7 @@ import ru.netology.nmedia.dto.Post
 
 class PostViewHolder(
     private val binding: PostCardBinding,
-    private val onLikeListener: OnLikeListener,
-    private val onShareListener: OnShareListener,
-    private val onRemoveListener: OnRemoveListener
+    private val onInteractionListener: OnInteractionListener
 
 ) : RecyclerView.ViewHolder(binding.root) {
     fun bind(post: Post) {
@@ -29,10 +25,10 @@ class PostViewHolder(
                 if (post.likedByMe) R.drawable.ic_baseline_favorite_24 else R.drawable.ic_baseline_favorite_border_24
             )
             like.setOnClickListener {
-                onLikeListener(post)
+                onInteractionListener.onLike(post)
             }
             shares.setOnClickListener {
-                onShareListener(post)
+                onInteractionListener.onShare(post)
             }
             spot.setOnClickListener {
                 PopupMenu(it.context, it).apply {
@@ -40,7 +36,11 @@ class PostViewHolder(
                     setOnMenuItemClickListener { item ->
                         when (item.itemId) {
                             R.id.remove -> {
-                                onRemoveListener(post)
+                               onInteractionListener.onRemove(post)
+                                true
+                            }
+                            R.id.edit -> {
+                                onInteractionListener.onEdit(post)
                                 true
                             }
                             else ->
