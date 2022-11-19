@@ -71,7 +71,7 @@
     <EditText
         android:id="@+id/content"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/post_avatar_size"
         android:background="@color/white"
         android:importantForAutofill="no"
         android:inputType="textMultiLine"
