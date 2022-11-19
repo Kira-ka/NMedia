@@ -1,9 +1,12 @@
 package ru.netology.nmedia.activity
 
 import android.os.Bundle
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+
 import ru.netology.nmedia.R
 import ru.netology.nmedia.adapter.OnInteractionListener
 import ru.netology.nmedia.adapter.PostAdapter
@@ -15,6 +18,7 @@ import ru.netology.nmedia.viewmodel.PostViewModel
 class MainActivity : AppCompatActivity() {
 
     val viewModel: PostViewModel by viewModels()
+    val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
 
     private val interactionListener = object : OnInteractionListener {
 
@@ -33,12 +37,13 @@ class MainActivity : AppCompatActivity() {
 
         override fun onEdit(post: Post) {
             viewModel.edit(post)
+            binding.group.visibility = VISIBLE
         }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = ActivityMainBinding.inflate(layoutInflater)
+
         setContentView(binding.root)
 
 
@@ -50,11 +55,14 @@ class MainActivity : AppCompatActivity() {
         }
 
         viewModel.edited.observe(this) { post ->
-            if(post.id == 0L){
+            if (post.id == 0L) {
                 return@observe
             }
-            with(binding.editContent){
+            with(binding.editContent) {
                 requestFocus()
+                setText(post.content)
+            }
+            with(binding.content) {
                 setText(post.content)
             }
         }
@@ -69,6 +77,7 @@ class MainActivity : AppCompatActivity() {
                         .show()
                     return@setOnClickListener
                 }
+
                 viewModel.changeContent(text.toString())
                 viewModel.save()
 
@@ -78,12 +87,19 @@ class MainActivity : AppCompatActivity() {
             }
 
         }
-
-
+        binding.cancelButton.setOnClickListener {
+            viewModel.cancel()
+            binding.group.visibility = GONE
+        }
 
         binding.list.adapter = adapter
         viewModel.data.observe(this) { posts ->
             adapter.submitList(posts)
+            with(binding.editContent) {
+                setText("")
+                clearFocus()
+                AndroidUtils.hideKeyboard(this)
+            }
         }
 
     }

@@ -34,9 +34,8 @@ class PostViewModel : ViewModel() {
     }
 
 
-
-
-fun likeById(id: Long) = repository.likeById(id)
-fun shareById(id: Long) = repository.shareById(id)
-fun removeById(id: Long) = repository.removeById(id)
+    fun cancel() = repository.cancel()
+    fun likeById(id: Long) = repository.likeById(id)
+    fun shareById(id: Long) = repository.shareById(id)
+    fun removeById(id: Long) = repository.removeById(id)
 }
