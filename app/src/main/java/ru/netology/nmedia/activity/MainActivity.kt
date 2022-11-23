@@ -80,29 +80,31 @@ class MainActivity : AppCompatActivity() {
 
                 viewModel.changeContent(text.toString())
                 viewModel.save()
-
                 setText("")
                 clearFocus()
                 AndroidUtils.hideKeyboard(this)
+
             }
 
         }
         binding.cancelButton.setOnClickListener {
             viewModel.cancel()
             binding.group.visibility = GONE
-        }
-
-        binding.list.adapter = adapter
-        viewModel.data.observe(this) { posts ->
-            adapter.submitList(posts)
             with(binding.editContent) {
                 setText("")
                 clearFocus()
                 AndroidUtils.hideKeyboard(this)
             }
+
+            binding.list.adapter = adapter
+            viewModel.data.observe(this) { posts ->
+                adapter.submitList(posts)
+
+
+            }
+
         }
 
+
     }
-
-
 }
