@@ -16,5 +16,17 @@
         <item name="rippleColor">#9E9E9E</item>
     </style>
 
+    <style name="Widget.App.Button.Option" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="iconPadding">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:paddingLeft">@dimen/common_spacing</item>
+        <item name="android:paddingRight">@dimen/common_spacing</item>
+        <item name="android:minWidth">@dimen/icon_button_min_size</item>
+        <item name="android:minHeight">@dimen/icon_button_min_size</item>
+        <item name="iconTint">?attr/colorControlNormal</item>
+        <item name="rippleColor">#9E9E9E</item>
+        <item name="strokeColor">@color/white</item>
+    </style>
 
 </resources>
