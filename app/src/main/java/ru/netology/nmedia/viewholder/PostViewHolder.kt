@@ -20,11 +20,9 @@ class PostViewHolder(
             author.text = post.author
             time.text = post.published
             content.text = post.content
-            likeCount.text = Counter.count(post.likes)
-            shareCount.text = Counter.count(post.share)
-            like.setImageResource(
-                if (post.likedByMe) R.drawable.ic_baseline_favorite_24 else R.drawable.ic_baseline_favorite_border_24
-            )
+            shares.setText(Counter.count(post.share))
+            like.setText(Counter.count(post.likes))
+            like.isChecked = post.likedByMe
             like.setOnClickListener {
                 onInteractionListener.onLike(post)
             }
@@ -37,7 +35,7 @@ class PostViewHolder(
                     setOnMenuItemClickListener { item ->
                         when (item.itemId) {
                             R.id.remove -> {
-                               onInteractionListener.onRemove(post)
+                                onInteractionListener.onRemove(post)
                                 true
                             }
                             R.id.edit -> {
