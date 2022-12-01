@@ -36,6 +36,12 @@ android {
 }
 
 dependencies {
+
+    def fragment_version = "1.5.1"
+    def activity_version = "1.6.1"
+    implementation "androidx.fragment:fragment-ktx:$fragment_version"
+    implementation "androidx.activity:activity-ktx:$activity_version"
+
     def mdc_version = "1.7.0"
     implementation "com.google.android.material:material:$mdc_version"
 

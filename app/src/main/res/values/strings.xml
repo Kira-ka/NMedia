@@ -8,4 +8,5 @@
     <string name="post_text">Post text</string>
     <string name="edit">edit</string>
     <string name="not_empty">Content can\'t be empty</string>
+    <string name="choser_share_post">Share</string>
 </resources>

@@ -6,4 +6,5 @@
     <string name="post_text">Текст</string>
     <string name="edit">редактировать</string>
     <string name="not_empty">Содержимое не может быть пустым</string>
+    <string name="choser_share_post">Поделиться</string>
 </resources>
