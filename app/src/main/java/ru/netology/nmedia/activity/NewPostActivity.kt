@@ -21,7 +21,7 @@ class NewPostActivity : AppCompatActivity() {
                 intent.putExtra(Intent.EXTRA_TEXT, content)
                 setResult(Activity.RESULT_OK,intent)
             }
+            finish()
         }
-        finish()
     }
 }

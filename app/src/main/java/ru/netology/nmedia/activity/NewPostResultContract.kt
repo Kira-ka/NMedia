@@ -17,5 +17,4 @@ class NewPostResultContract : ActivityResultContract<Unit, String?>() {
         } else {
             null
         }
-
 }
