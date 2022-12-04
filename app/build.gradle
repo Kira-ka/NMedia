@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'org.jetbrains.kotlin.plugin.serialization' version '1.7.21'
 }
 
 android {
@@ -36,6 +37,9 @@ android {
 }
 
 dependencies {
+
+    def serialization_version = "1.4.1"
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:$serialization_version"
 
     def fragment_version = "1.5.1"
     def activity_version = "1.6.1"

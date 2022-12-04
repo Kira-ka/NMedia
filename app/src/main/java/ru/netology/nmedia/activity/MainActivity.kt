@@ -4,10 +4,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View.GONE
 import android.view.View.VISIBLE
+import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.activity.result.launch
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
 
 import ru.netology.nmedia.R
 import ru.netology.nmedia.adapter.OnInteractionListener
@@ -16,6 +19,7 @@ import ru.netology.nmedia.databinding.ActivityMainBinding
 import ru.netology.nmedia.dto.Post
 import ru.netology.nmedia.hidekeyboard.AndroidUtils
 import ru.netology.nmedia.viewmodel.PostViewModel
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -46,6 +50,7 @@ class MainActivity : AppCompatActivity() {
 
         override fun onEdit(post: Post) {
             viewModel.edit(post)
+
         }
     }
 
@@ -74,9 +79,15 @@ class MainActivity : AppCompatActivity() {
             viewModel.save()
         }
 
-        binding.fab.setOnClickListener{
+        binding.fab.setOnClickListener {
             newPostLauncher.launch()
         }
+        val EditPostLauncher = registerForActivityResult(EditPostResultContract()) { result ->
+            result ?: return@registerForActivityResult
+            viewModel.changeContent(result.content)
+            viewModel.save()
+        }
+
 
     }
 
