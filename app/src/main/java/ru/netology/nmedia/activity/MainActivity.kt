@@ -50,8 +50,14 @@ class MainActivity : AppCompatActivity() {
 
         override fun onEdit(post: Post) {
             viewModel.edit(post)
-
+            EditPostLauncher.launch(post)
         }
+    }
+
+    val EditPostLauncher = registerForActivityResult(EditPostResultContract()) { result ->
+        result ?: return@registerForActivityResult
+        viewModel.changeContent(result.content)
+        viewModel.save()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -82,12 +88,6 @@ class MainActivity : AppCompatActivity() {
         binding.fab.setOnClickListener {
             newPostLauncher.launch()
         }
-        val EditPostLauncher = registerForActivityResult(EditPostResultContract()) { result ->
-            result ?: return@registerForActivityResult
-            viewModel.changeContent(result.content)
-            viewModel.save()
-        }
-
 
     }
 
