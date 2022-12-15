@@ -10,10 +10,19 @@
 
     <style name="shares" parent="Widget.MaterialComponents.Button.TextButton.Icon">
         <item name="android:textColor">?attr/colorControlNormal</item>
-        <item name="iconTint">?attr/colorControlNormal</item>
+        <item name="iconTint">@color/grey</item>
         <item name="android:minWidth">@dimen/icon_button_min_size</item>
         <item name="android:minHeight">@dimen/icon_button_min_size</item>
-        <item name="rippleColor">#9E9E9E</item>
+        <item name="rippleColor">@color/grey</item>
+    </style>
+
+    <style name="play" parent="Widget.MaterialComponents.Button.OutlinedButton.Icon">
+        <item name="icon">@drawable/ic_baseline_play_circle_outline_24</item>
+        <item name="iconTint">@color/grey</item>
+        <item name="android:minWidth">@dimen/icon_button_min_size</item>
+        <item name="android:minHeight">@dimen/icon_button_min_size</item>
+        <item name="iconSize">@dimen/post_avatar_size</item>
+        <item name="rippleColor">@color/grey</item>
     </style>
 
     <style name="Widget.App.Button.Option" parent="Widget.MaterialComponents.Button.OutlinedButton">

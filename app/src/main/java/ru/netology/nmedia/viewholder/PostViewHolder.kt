@@ -18,6 +18,16 @@ class PostViewHolder(
 ) : RecyclerView.ViewHolder(binding.root) {
     fun bind(post: Post) {
         binding.apply {
+            post.video?.let {
+                group.visibility = View.VISIBLE
+                play.setOnClickListener {
+                    onInteractionListener.onPlay(post)
+                }
+                plug.setOnClickListener {
+                    onInteractionListener.onPlay(post)
+                }
+            }
+
             author.text = post.author
             time.text = post.published
             content.text = post.content

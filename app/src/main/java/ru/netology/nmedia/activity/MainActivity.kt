@@ -1,6 +1,8 @@
 package ru.netology.nmedia.activity
 
 import android.content.Intent
+
+import android.net.Uri
 import android.os.Bundle
 import android.view.View.GONE
 import android.view.View.VISIBLE
@@ -51,6 +53,12 @@ class MainActivity : AppCompatActivity() {
         override fun onEdit(post: Post) {
             viewModel.edit(post)
             EditPostLauncher.launch(post)
+        }
+
+        override fun onPlay(post: Post) {
+            val video = Uri.parse(post.video)
+            val playIntent = Intent(Intent.ACTION_VIEW, video)
+            startActivity(playIntent)
         }
     }
 
