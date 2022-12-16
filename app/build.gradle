@@ -38,9 +38,14 @@ android {
 
 dependencies {
 
-    implementation 'androidx.coordinatorlayout:coordinatorlayout:1.2.0'
+    def gson_version = "2.10"
+    implementation "com.google.code.gson:gson:$gson_version"
+
     def serialization_version = "1.4.1"
     implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:$serialization_version"
+
+    implementation 'androidx.coordinatorlayout:coordinatorlayout:1.2.0'
+
 
     def fragment_version = "1.5.1"
     def activity_version = "1.6.1"
