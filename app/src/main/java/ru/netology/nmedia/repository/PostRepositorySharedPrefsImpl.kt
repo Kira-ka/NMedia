@@ -66,6 +66,7 @@ class PostRepositorySharedPrefsImpl(
                 )
             ) + posts
             data.value = posts
+            sync()
             return
         }
         posts = posts.map {
