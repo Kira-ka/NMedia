@@ -27,7 +27,6 @@ class PostViewHolder(
                     onInteractionListener.onPlay(post)
                 }
             }
-
             author.text = post.author
             time.text = post.published
             content.text = post.content
@@ -40,7 +39,11 @@ class PostViewHolder(
             shares.setOnClickListener {
                 onInteractionListener.onShare(post)
             }
-            spot.setOnClickListener {
+            content.setOnClickListener{
+                onInteractionListener.onSpecificPost(post)
+            }
+
+            menu.setOnClickListener {
                 PopupMenu(it.context, it).apply {
                     inflate(R.menu.popup_menu)
                     setOnMenuItemClickListener { item ->

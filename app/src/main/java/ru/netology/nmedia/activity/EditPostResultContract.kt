@@ -11,7 +11,7 @@ import ru.netology.nmedia.dto.Post
 
 class EditPostResultContract : ActivityResultContract<Post, Post?>() {
     override fun createIntent(context: Context, input: Post): Intent {
-        return Intent(context, EditPostActivity::class.java)
+        return Intent(context, EditPostFragment::class.java)
        .putExtra("data", Json.encodeToString(input))
     }
 
