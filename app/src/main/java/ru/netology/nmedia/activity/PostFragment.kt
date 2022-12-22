@@ -19,7 +19,6 @@ class PostFragment : Fragment() {
     val viewModel: PostViewModel by viewModels(ownerProducer = ::requireParentFragment)
 
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -29,7 +28,6 @@ class PostFragment : Fragment() {
             container,
             false
         )
-         var post: Post? = viewModel.edited.value
 
         viewModel.edited.observe(viewLifecycleOwner) { post ->
             with(binding) {
@@ -39,16 +37,19 @@ class PostFragment : Fragment() {
                 shares.text = post.share.toString()
                 shares.text = post.share.toString()
                 like.setText(post.likes.toString())
+
+                like.setOnClickListener {
+                    viewModel.likeById(post.id)
+                }
+                shares.setOnClickListener{
+                    viewModel.shareById(post.id)
+                }
             }
         }
 
 
 
-        binding.like.setOnClickListener{
-            if (post != null) {
-                viewModel.likeById(post.id)
-            }
-        }
+
 
         return binding.root
     }
