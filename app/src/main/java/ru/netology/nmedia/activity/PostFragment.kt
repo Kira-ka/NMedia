@@ -1,5 +1,7 @@
 package ru.netology.nmedia.activity
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,10 +11,11 @@ import android.widget.PopupMenu
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import ru.netology.nmedia.R
-import ru.netology.nmedia.databinding.FragmentEditPostBinding
+
+import ru.netology.nmedia.counter.Counter
+
 import ru.netology.nmedia.databinding.FragmentPostBinding
-import ru.netology.nmedia.dto.Post
-import ru.netology.nmedia.hidekeyboard.AndroidUtils
+
 import ru.netology.nmedia.viewmodel.PostViewModel
 
 
@@ -37,18 +40,33 @@ class PostFragment : Fragment() {
                 contentFragPost.text = post.content
                 author.text = post.author
                 time.text = post.published
-                shares.text = post.share.toString()
-                shares.text = post.share.toString()
-                like.setText(post.likes.toString())
+                shares.text = Counter.count(post.share)
 
-                like.setOnClickListener {
-                    viewModel.likeById(post.id)
-                    viewModel.data.observe(viewLifecycleOwner){ posts ->
-                        viewModel.edited.value = posts.find {   it.id == post.id}
+                like.text = Counter.count(post.likes)
+                post.video?.let {
+                    group.visibility = View.VISIBLE
+                    play.setOnClickListener {
+                        val video = Uri.parse(post.video)
+                        val playIntent = Intent(Intent.ACTION_VIEW, video)
+                        startActivity(playIntent)
+                    }
+                    plug.setOnClickListener {
+                        val video = Uri.parse(post.video)
+                        val playIntent = Intent(Intent.ACTION_VIEW, video)
+                        startActivity(playIntent)
                     }
                 }
-                shares.setOnClickListener{
+                like.setOnClickListener {
+                    viewModel.likeById(post.id)
+                    viewModel.data.observe(viewLifecycleOwner) { posts ->
+                        viewModel.edited.value = posts.find { it.id == post.id }
+                    }
+                }
+                shares.setOnClickListener {
                     viewModel.shareById(post.id)
+                    viewModel.data.observe(viewLifecycleOwner) { posts ->
+                        viewModel.edited.value = posts.find { it.id == post.id }
+                    }
                 }
                 menu.setOnClickListener {
                     PopupMenu(it.context, it).apply {
@@ -72,11 +90,6 @@ class PostFragment : Fragment() {
                 }
             }
         }
-
-
-
-
-
         return binding.root
     }
 }

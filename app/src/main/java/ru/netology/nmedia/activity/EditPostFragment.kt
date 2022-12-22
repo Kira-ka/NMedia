@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
+import ru.netology.nmedia.R
 import ru.netology.nmedia.databinding.FragmentEditPostBinding
 import ru.netology.nmedia.databinding.FragmentNewPostBinding
 
@@ -49,7 +50,7 @@ class EditPostFragment : Fragment() {
             viewModel.changeContent(binding.editPost.text.toString())
             viewModel.save()
             AndroidUtils.hideKeyboard(requireView())
-            findNavController().navigateUp()
+            findNavController().navigate(R.id.action_editPostFragment_to_feedActivity)
         }
 
         return binding.root

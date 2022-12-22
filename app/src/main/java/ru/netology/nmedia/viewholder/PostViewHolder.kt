@@ -4,7 +4,7 @@ import android.view.View
 import android.widget.PopupMenu
 import androidx.recyclerview.widget.RecyclerView
 import ru.netology.nmedia.R
-import ru.netology.nmedia.activity.EditPostResultContract
+
 import ru.netology.nmedia.adapter.OnInteractionListener
 import ru.netology.nmedia.databinding.PostCardBinding
 import ru.netology.nmedia.counter.Counter
