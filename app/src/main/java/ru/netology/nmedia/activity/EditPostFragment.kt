@@ -23,11 +23,6 @@ import ru.netology.nmedia.viewmodel.PostViewModel
 
 class EditPostFragment : Fragment() {
 
-    companion object {
-        private const val TEXT_KEY = "TEXT_KEY"
-        var Bundle.texArg: String? by StringArg
-    }
-
     val viewModel: PostViewModel by viewModels(ownerProducer = ::requireParentFragment)
 
     override fun onCreateView(
