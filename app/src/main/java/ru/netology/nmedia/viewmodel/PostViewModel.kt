@@ -21,11 +21,22 @@ class PostViewModel(application: Application) : AndroidViewModel(application) {
     private val repository: PostRepository = PostRepositorySQLiteImpl(
         AppDb.getInstance(application).postDao
     )
+
     //private val repository: PostRepository = PostRepositoryInMemoryImpl()
     // private val repository: PostRepository = PostRepositorySharedPrefsImpl(application)
     val data = repository.getAll()
     val edited = MutableLiveData(empty)
 
+    val text = ""
+    val draft = MutableLiveData(text)
+
+    fun textDraft(string: String) {
+        draft.value = string
+    }
+
+    fun getTextDraft(): String? {
+        return draft.value
+    }
 
     fun save() {
         edited.value?.let {
