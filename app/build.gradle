@@ -3,6 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'org.jetbrains.kotlin.plugin.serialization' version '1.7.21'
     id 'kotlin-kapt'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -38,6 +39,13 @@ android {
 }
 
 dependencies {
+    def play_services_base_version = "18.0.1"
+    implementation "com.google.android.gms:play-services-base:$play_services_base_version"
+
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation platform('com.google.firebase:firebase-bom:31.1.1')
+    implementation 'com.google.firebase:firebase-messaging-ktx:23.1.1'
+
     def room_ver = "2.4.3"
     implementation "androidx.room:room-runtime:$room_ver"
     annotationProcessor "androidx.room:room-compiler:$room_ver"
